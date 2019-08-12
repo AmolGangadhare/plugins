@@ -113,6 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
       return retrieveError;
     }
     if (_imageFile != null) {
+      _imageFile.length().then((v) {
+        print("Image size : $v");
+      });
       return Image.file(_imageFile);
     } else if (_pickImageError != null) {
       return Text(
