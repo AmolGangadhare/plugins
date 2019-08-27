@@ -58,8 +58,7 @@ public class GifCompressionAsync extends AsyncTask<Void, Void, String> {
                 tempBitmap = gifDecoder.getNextFrame();
                 bmpImg = Bitmap.createScaledBitmap(tempBitmap, width, height, false);
                 boolean isPng = tempBitmap.hasAlpha();
-                if (imageQuality > 0 && imageQuality < 100)
-                    bmpImg.compress(isPng ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG, imageQuality, new ByteArrayOutputStream());
+                bmpImg.compress(isPng ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG, imageQuality, new ByteArrayOutputStream());
                 bitmaps.add(bmpImg);
                 avgDelay += gifDecoder.getDelay(frames);
                 frames++;
